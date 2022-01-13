@@ -1,0 +1,72 @@
+﻿Tenk deg at du har tippet og følger med på kampene og vil vite hvor mange rette du har. 
+I første omgang skal vi forenkle ved å kun se på en kamp. 
+Koden under leser inn hva som er tippet fra brukeren. Det kan være H, U eller B, men også HU, HB, UB for helvgardering og HUB for helgardering. 
+
+I første omgang skal dere kopiere koden under å se hva den gjør. 
+Oppgaven står forklart under koden.
+
+Console.Write("Gyldig tips: \r\n - H, U, B\r\n - halvgardering: HU, HB, UB\r\n - helgardering: HUB\r\nHva har du tippet for denne kampen? ");
+var bet = Console.ReadLine();
+var homeGoals = 0;
+var awayGoals = 0;
+var matchIsRunning = true;
+while (matchIsRunning)
+{
+    Console.Write("Kommandoer: \r\n - H = scoring hjemmelag\r\n - B = scoring bortelag\r\n - X = kampen er ferdig\r\nAngi kommando: ");
+    var command = Console.ReadLine();
+    matchIsRunning = command != "X";
+    if (command == "H") homeGoals++;
+    else if (command == "B") awayGoals++;
+    Console.WriteLine($"Stillingen er {homeGoals}-{awayGoals}.");
+}
+
+var result = homeGoals == awayGoals ? "U" : homeGoals > awayGoals ? "H" : "B";
+var isBetCorrect = bet.Contains(result);
+var isBetCorrectText = isBetCorrect ? "riktig" : "feil";
+Console.WriteLine($"Du tippet {isBetCorrectText}");
+
+--- OPPGAVE ---
+
+Skriv koden mer objektorientert. 
+
+1. Innfør en klasse Match som representerer en fotballkamp. 
+
+2. Hvilke felt (objektvariable) bør den ha? 
+
+3. Hva gjør applikasjonen med en fotballkamp? 
+
+4. Det siste(3) blir til metodene i klassen. 
+
+5. Det er ikke meningen å random generere kamputfall, med mindre man ønske å utfordre seg litt. 
+
+--- HINT ---
+
+Koden under viser objektvariablene, konstruktør og metodene i klassen - det som gjenstår er å gjøre ferdig konstruktøren og metodene - samt skrive om programmet til å bruke denne klassen.
+
+class Match
+{
+    private int _homeGoals;
+    private int _awayGoals;
+    private readonly string _bet;
+    public bool IsRunning { get; private set; }
+
+    public Match(string bet)
+    {
+    }
+
+    public void AddGoal(bool isHomeTeam)
+    {
+    }
+
+    public bool IsBetCorrect()
+    {
+    }
+
+    public void Stop()
+    {
+    }
+
+    public string GetScore()
+    {
+    }
+}
